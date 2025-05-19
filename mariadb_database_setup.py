@@ -3,7 +3,7 @@ import mariadb  # This is the database that holds all of the information regardi
 
 mariadb_con = mariadb.connect(
     user="root",
-    password="soccerm@n1",
+    password="",
     host="127.0.0.1",
     port=3306,
     database="Elden-Build-Info",
@@ -15,7 +15,7 @@ cur = mariadb_con.cursor()
 def create_database(db_name: str):
     mariadb_connect = mariadb.connect(
         user="root",
-        password="soccerm@n1",
+        password="",
         host="127.0.0.1",
         port=3306
     )
