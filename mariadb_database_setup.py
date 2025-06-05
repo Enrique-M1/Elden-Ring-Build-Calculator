@@ -1,8 +1,9 @@
 import mariadb  # This is the database that holds all of the information regarding the Characters and Armor
-import os
+from _shared.DBSettings import Settings
 
-DBUSER = os.environ['EldenRingBuildCalcUsername']
-DBPASS = os.environ['EldenRingBuildCalcPassword']
+
+DBUSER = Settings.getDBUsername()
+DBPASS = Settings.getDBPassword()
 
 mariadb_con = mariadb.connect(
     user=DBUSER,

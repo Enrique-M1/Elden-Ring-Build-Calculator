@@ -159,5 +159,12 @@ def print_saved_builds():
 
 
 if __name__ == '__main__':
-    # Calls function to connect to server
-    call_api_service()
+    api_flag = input("Is the api service running? (y/n)")
+
+    # Checking the api service
+    if api_flag == 'yes' or api_flag == 'Y' or api_flag == 'Yes' or api_flag == 'y':
+        # Calls function to connect to server
+        call_api_service()
+
+    else:
+        print("Please make sure 'API_service.py' is running before you run the client.")
