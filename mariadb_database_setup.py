@@ -1,9 +1,12 @@
 import mariadb  # This is the database that holds all of the information regarding the Characters and Armor
+import os
 
+DBUSER = os.environ['EldenRingBuildCalcUsername']
+DBPASS = os.environ['EldenRingBuildCalcPassword']
 
 mariadb_con = mariadb.connect(
-    user="root",
-    password="",
+    user=DBUSER,
+    password=DBPASS,
     host="127.0.0.1",
     port=3306,
     database="Elden-Build-Info",
@@ -14,8 +17,8 @@ cur = mariadb_con.cursor()
 # Creating the database
 def create_database(db_name: str):
     mariadb_connect = mariadb.connect(
-        user="root",
-        password="",
+        user=DBUSER,
+        password=DBPASS,
         host="127.0.0.1",
         port=3306
     )

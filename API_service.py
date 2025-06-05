@@ -1,9 +1,12 @@
 import mariadb  # the database
+import os
 import asyncio
 from hypercorn.config import Config
 from hypercorn.asyncio import serve
 from fastapi import FastAPI
 from starlette.responses import RedirectResponse
+
+from mariadb_database_setup import DBUSER
 from models.stats import Stats
 from models.armor import Armor
 from models.character import Character
@@ -12,11 +15,16 @@ from models.fullbuild import FullBuild
 # https://fastapi.tiangolo.com/
 app = FastAPI(title="Elden Ring API")  # The server name
 
+# Database Variables
+DB_USER = os.environ["EldenRingBuildCalcUsername"]
+DB_PASS = os.environ["EldenRingBuildCalcPassword"]
+
+
 # This is the default setup for servers. If port 3306 is already full, there may be a password or a different
 # username you need to substitute this for.
 mariadb_con = mariadb.connect(
-    user="root",
-    password="",
+    user=DB_USER,
+    password=DB_PASS,
     host="127.0.0.1",
     port=3306,
     database="Elden-Build-Info",
