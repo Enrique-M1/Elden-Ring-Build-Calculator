@@ -1,0 +1,6 @@
+mariadb
+fastapi
+hypercorn
+starlette
+requests
+pydantic
